@@ -1,0 +1,40 @@
+{% extends "veterinaria/base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h4 class="mt-4">Receta de {{object.mascota.nombre}} expediente "{{object.expediente}}"</h4>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Expediente: </b>{{object.expediente}}</li>
+                <li class="list-group-item"><b>Nombre: </b>{{object.mascota.nombre}}</li>
+                <li class="list-group-item"><b>Receta: </b>{{object.receta}}</li>
+                <li class="list-group-item"><b>Nota: </b>{{object.nota}}</li>
+                <li class="list-group-item"><b>Fecha: </b>{{object.fecha}}</li>
+            
+
+            </div>
+
+        </div>
+
+        <div class="mt-5">
+            <strong>Opciones</strong>
+            <hr>
+            <div class="form-group ">
+                <a class="btn btn-sm btn-primary" href="{% url 'receta-editar' object.id %}">Editar</a>
+                <a class="btn btn-sm btn-danger" href="{% url 'receta-eliminar' object.id %}">Eliminar</a>
+            </div>
+            <hr>
+            <a href="{% url 'mascota-id' object.mascota.id %}" class="btn btn-sm btn-primary">Regresar a la pagina de la mascota</a>
+        </div>
+
+
+
+
+    </div>
+    
+    {% endblock %}

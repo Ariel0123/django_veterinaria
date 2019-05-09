@@ -1,0 +1,39 @@
+{% extends "veterinaria/base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="card col-md-4" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h4 class="text-center mt-4">Log In</h4>
+            <form method="POST">
+                {% csrf_token %}
+
+
+
+                <div class="card-body">
+                    {{ form|crispy }}
+
+
+                    <button type="submit" class="btn btn-primary mb-4 btn-block">Login</button>
+
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+{% endblock content %}

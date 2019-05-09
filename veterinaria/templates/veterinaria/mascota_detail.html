@@ -1,0 +1,60 @@
+{% extends "veterinaria/base.html" %}
+
+{% block content %}
+
+<div class="container mb-5">
+
+    <h4 class="mt-4">Mascota: {{object.nombre}}</h4>
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="justify-content-center">
+                <img class="card-img" src="{{ object.foto.url }}" style="width: 250px;">
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Dueño: </b>{{object.dueno.NombreCompleto}}</li>
+                <li class="list-group-item"><b>Nombre: </b>{{object.nombre}}</li>
+                 <li class="list-group-item"><b>Especie: </b>{{object.especie}}</li>
+                  <li class="list-group-item"><b>Raza: </b>{{object.raza}}</li>
+                <li class="list-group-item"><b>Sexo: </b>{{object.sexo}}</li>
+                <li class="list-group-item"><b>Peso: </b>{{object.peso}} kg</li>
+                <li class="list-group-item"><b>Edad: </b>{{object.edad}} años</li>
+                 <li class="list-group-item"><b>Color: </b>{{object.color}}</li>
+                <li class="list-group-item"><b>Fecha de nacimiento: </b>{{object.fecha_nacimiento}}</li>
+                
+
+            </div>
+
+            <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Opciones Citas</strong></li>
+                    <li class="list-group-item"><a class="btn btn-sm btn-info mr-3" href="{% url 'cita-nuevo' object.id %}">Nueva cita</a><a class="btn btn-sm btn-info" href="{% url 'mascota-cita' object.nombre %}">Lista de citas</a></li>
+
+                    <li class="list-group-item"><strong>Opciones Recetas</strong></li>
+                    <li class="list-group-item"><a class="btn btn-sm btn-info mr-3" href="{% url 'receta-nuevo' object.id %}">Nueva receta</a><a class="btn btn-sm btn-info" href="{% url 'mascota-receta' object.nombre %}">Lista de recetas</a></li>
+
+                    <li class="list-group-item"><strong>Opciones Cirugias</strong></li> 
+                    <li class="list-group-item"><a class="btn btn-sm btn-info mr-3" href="{% url 'cirugia-nuevo' object.id %}">Nueva Cirugia </a><a class="btn btn-sm btn-info" href="{% url 'mascota-cirugia' object.nombre %}">Lista de cirugias</a></li>
+
+                </ul>
+            </div> 
+        </div>
+
+        <div class="mt-5">
+            <strong>Opciones</strong>
+            <hr>
+            <div class="form-group ">
+                <a class="btn btn-sm btn-primary" href="{% url 'mascota-editar' object.id %}">Editar</a>
+                <a class="btn btn-sm btn-danger" href="{% url 'mascota-eliminar' object.id %}">Eliminar</a>
+            </div>
+            <hr>
+            <a href="{% url 'cliente-id' object.dueno.id %}" class="btn btn-sm btn-primary">Regresar a la pagina del cliente</a>
+        </div>
+
+
+
+
+    </div>
+    
+    {% endblock %}

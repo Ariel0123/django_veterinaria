@@ -1,0 +1,48 @@
+{% extends "veterinaria/base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h4 class="mt-4">Cliente: {{object.NombreCompleto}}</h4>
+
+    <div class="row">
+        <div class="col-md-6">
+            
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Nombre: </b>{{object.nombre}}</li>
+                <li class="list-group-item"><b>Primer apellido: </b>{{object.primer_apellido}}</li>
+                <li class="list-group-item"><b>Segundo apellido: </b>{{object.segundo_apellido}}</li>
+                <li class="list-group-item"><b>Telefono: </b>{{object.telefono}}</li>
+                <li class="list-group-item"><b>Correo: </b><a href = "mailto:{{object.correo}}">{{object.correo}}</a></li>
+            
+        </div>
+        
+    <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Mascotas del cliente</li>
+                <li class="list-group-item"><a class="btn btn-sm btn-info" href="{% url 'cliente-mascota' object.nombre %}">Mascotas </a></li>
+                
+                <li class="list-group-item"><a class="btn btn-sm btn-info" href="{% url 'mascota-nuevo' object.id %}">Nueva Mascota</a></li>
+                
+            </ul>
+            </div> 
+            </div>
+
+            <div class="mt-5">
+                <strong>Opciones</strong>
+                <hr>
+                <div class="form-group ">
+                <a class="btn btn-sm btn-primary" href="{% url 'cliente-editar' object.id %}">Editar</a>
+                <a class="btn btn-sm btn-danger" href="{% url 'cliente-eliminar' object.id %}">Eliminar</a>
+                </div>
+                <hr>
+                <a href="{% url 'cliente-list' %}" class="btn btn-sm btn-primary">Regresar</a>
+            </div>
+
+            
+    
+    
+</div>
+    
+{% endblock %}

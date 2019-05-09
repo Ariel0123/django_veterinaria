@@ -1,0 +1,43 @@
+{% extends "veterinaria/base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+
+    <h4 class="mt-3">Recetas de cirugia</h4>
+
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th scope="col">Expediente</th>
+          <th scope="col">Mascota</th>
+          <th scope="col">Fecha</th>
+          
+         
+          <th scope="col">Detalles</th>
+      </tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+        
+    <tr>
+      <th scope="row">{{item.expediente}}</th>
+      <td>{{item.cirugia.mascota.nombre}}</td>
+       <td>{{item.fecha}}</td>
+      
+     
+      <td>
+          <a class="btn btn-sm btn-info" href="{% url 'recetacirugia-id' item.id %}">Detalles</a>
+      </td>
+  </tr>
+
+    {% endfor %}
+
+  
+</tbody>
+</table>
+
+</div>
+
+{% endblock  %}

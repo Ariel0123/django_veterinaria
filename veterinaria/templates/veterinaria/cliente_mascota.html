@@ -1,0 +1,48 @@
+{% extends "veterinaria/base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <h5 class="mt-4">Mascotas de {{view.kwargs.nombre }}</h5>
+
+
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Mascota</th>
+        <th scope="col">Especie</th>
+        <th scope="col">Raza</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Dueño</th>
+        
+        
+        <th scope="col">Detalles</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      
+      <tr>
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.nombre}}</td>
+        <td>{{item.especie}}</td>
+        <td>{{item.raza}}</td>
+        <td>{{item.sexo}}</td>
+        <td>{{item.dueno.NombreCompleto}}</td>
+        
+        <td>
+          <a class="btn btn-sm btn-info" href="{% url 'mascota-id' item.id %}">Detalles</a>
+        </td>
+      </tr>
+
+      {% endfor %}
+
+      
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock  %}
